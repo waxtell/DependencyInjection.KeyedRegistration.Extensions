@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace DependencyInjection.KeyedRegistration.Extensions.Extensions
 {
-    public static class ServiceCollectionExtensions
+    public static partial class ServiceCollectionExtensions
     {
         /// <summary>
         /// Adds a singleton service of the type specified in <typeparamref name="TService" /> with a
