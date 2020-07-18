@@ -4,25 +4,6 @@ using Xunit;
 
 namespace DependencyInjection.KeyedRegistration.Extensions.Tests
 {
-    public interface IPerson
-    {
-        string Name { get; }
-    }
-
-    public class Person : IPerson
-    {
-        public virtual string Name { get; }
-
-        public Person(string name)
-        {
-            Name = name;
-        }
-
-        public Person() : this(null)
-        {
-        }
-    }
-
     public class NamedRegistrationTests
     {
         [Fact]
@@ -45,7 +26,7 @@ namespace DependencyInjection.KeyedRegistration.Extensions.Tests
         {
             var serviceCollection = new ServiceCollection();
 
-//            serviceCollection.AddNamedSingleton(typeof(Person), new Person("George Washington"), "first");
+            serviceCollection.AddNamedSingleton(typeof(Person), new Person("George Washington"), "first");
             serviceCollection.AddNamedSingleton(new Person("John Adams"), "second");
 
             var provider = serviceCollection.BuildServiceProvider();

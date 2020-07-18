@@ -4,14 +4,7 @@ using Castle.DynamicProxy;
 
 namespace DependencyInjection.KeyedRegistration.Extensions
 {
-    public interface IKeyedService<out TKey>
-    {
-        TKey Key { get; }
-        object Instance { get; }
-    }
-
-    public class NamedInstanceAdapter<TKey> 
-        : IKeyedService<TKey>, IInterceptor
+    public class NamedInstanceAdapter<TKey> : IKeyedService<TKey>, IInterceptor
     {
         public TKey Key { get; }
         public object Instance { get; }
