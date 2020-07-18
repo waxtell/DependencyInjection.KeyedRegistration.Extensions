@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DependencyInjection.KeyedRegistration.Extensions.Extensions
@@ -9,6 +10,12 @@ namespace DependencyInjection.KeyedRegistration.Extensions.Extensions
             this IServiceCollection services)
             where TService : class
         {
+            services
+                .AddSingleton<Func<TKey, IEnumerable<TService>>>
+                (
+                    provider => provider.GetServices<TKey, TService>
+                );
+
             return
                 services
                     .AddSingleton<Func<TKey, TService>>
