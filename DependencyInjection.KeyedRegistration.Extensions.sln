@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection.KeyedRe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection.KeyedRegistration.Extensions.Tests", "DependencyInjection.KeyedRegistration.Extensions.Tests\DependencyInjection.KeyedRegistration.Extensions.Tests.csproj", "{F7BAF791-7069-4206-A544-DB85A71DBE35}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApp", "SampleApp\SampleApp.csproj", "{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{F7BAF791-7069-4206-A544-DB85A71DBE35}.Release|x64.Build.0 = Release|Any CPU
 		{F7BAF791-7069-4206-A544-DB85A71DBE35}.Release|x86.ActiveCfg = Release|Any CPU
 		{F7BAF791-7069-4206-A544-DB85A71DBE35}.Release|x86.Build.0 = Release|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Debug|x64.Build.0 = Debug|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Debug|x86.Build.0 = Debug|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Release|x64.ActiveCfg = Release|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Release|x64.Build.0 = Release|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Release|x86.ActiveCfg = Release|Any CPU
+		{FFF989FF-A2C1-41A1-9FCF-C829220F8B82}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
