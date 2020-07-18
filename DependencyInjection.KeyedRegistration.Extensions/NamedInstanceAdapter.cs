@@ -17,7 +17,14 @@ namespace DependencyInjection.KeyedRegistration.Extensions
 
         public void Intercept(IInvocation invocation)
         {
-            if (invocation.Method.DeclaringType.IsAssignableFrom(typeof(IKeyedService<TKey>)))
+            bool IsKeyedService()
+            {
+                var result = invocation?.Method?.DeclaringType?.IsAssignableFrom(typeof(IKeyedService<TKey>));
+
+                return result.HasValue && result.Value;
+            }
+            
+            if (IsKeyedService())
             {
                 switch (invocation.Method.Name)
                 {
