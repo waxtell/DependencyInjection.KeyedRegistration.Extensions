@@ -4,7 +4,7 @@ using Xunit;
 
 namespace DependencyInjection.KeyedRegistration.Extensions.Tests
 {
-    public class NamedRegistrationTests
+    public class NamedSingletonTests
     {
         [Fact]
         public void NamedInterfaceRegistration()
