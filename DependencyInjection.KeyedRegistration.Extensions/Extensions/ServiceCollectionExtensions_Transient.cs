@@ -1,7 +1,8 @@
 ﻿using System;
-using Microsoft.Extensions.DependencyInjection;
+using DependencyInjection.KeyedRegistration.Extensions;
 
-namespace DependencyInjection.KeyedRegistration.Extensions.Extensions
+// ReSharper disable once CheckNamespace
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static partial class ServiceCollectionExtensions
     {

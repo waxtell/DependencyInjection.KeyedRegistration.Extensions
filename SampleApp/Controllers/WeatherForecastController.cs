@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using DependencyInjection.KeyedRegistration.Extensions.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SampleApp.Controllers
 {

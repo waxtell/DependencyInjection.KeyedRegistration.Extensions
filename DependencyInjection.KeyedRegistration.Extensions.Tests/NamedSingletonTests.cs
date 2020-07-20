@@ -1,4 +1,3 @@
-using DependencyInjection.KeyedRegistration.Extensions.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
