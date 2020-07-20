@@ -6,6 +6,74 @@ namespace DependencyInjection.KeyedRegistration.Extensions.Extensions
     public static partial class ServiceCollectionExtensions
     {
         /// <summary>
+        /// Adds a singleton service of the type specified in <paramref name="serviceType"/> with an
+        /// implementation of the type specified in <paramref name="implementationType"/> to the
+        /// specified <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <typeparam name="TKey">The type of the key</typeparam>
+        /// <param name="services">The <see cref="IServiceCollection"/> to add the service to.</param>
+        /// <param name="serviceType">The type of the service to register.</param>
+        /// <param name="implementationType">The implementation type of the service.</param>
+        /// <param name="key">The name or key for the instance</param>
+        /// <returns>A reference to this instance after the operation has completed.</returns>
+        /// <seealso cref="ServiceLifetime.Singleton"/>
+        public static IServiceCollection AddNamedSingleton<TKey>(
+            this IServiceCollection services,
+            Type serviceType,
+            Type implementationType,
+            TKey key)
+        {
+            object AdaptedFactory(IServiceProvider provider) =>
+                NamedInstanceAdapter<TKey>
+                    .Create
+                    (
+                        serviceType,
+                        ActivatorUtilities.GetServiceOrCreateInstance(provider, implementationType),
+                        key
+                    );
+
+            services
+                .Add
+                (
+                new ServiceDescriptor
+                    (
+                        serviceType, 
+                        AdaptedFactory, 
+                        ServiceLifetime.Singleton
+                    )
+                );
+
+            return
+                services;
+        }
+
+        /// <summary>
+        /// Adds a singleton service of the type specified in <typeparamref name="TService"/> with an
+        /// implementation type specified in <typeparamref name="TImplementation"/> to the
+        /// specified <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <typeparam name="TKey">The type of the key</typeparam>
+        /// <typeparam name="TService">The type of the service to add.</typeparam>
+        /// <typeparam name="TImplementation">The type of the implementation to use.</typeparam>
+        /// <param name="services">The <see cref="IServiceCollection"/> to add the service to.</param>
+        /// <param name="key">The name or key for the instance</param>
+        /// <returns>A reference to this instance after the operation has completed.</returns>
+        /// <seealso cref="ServiceLifetime.Singleton"/>
+        public static IServiceCollection AddNamedSingleton<TKey, TService, TImplementation>(this IServiceCollection services, TKey key)
+            where TService : class
+            where TImplementation : class, TService
+        {
+            return
+                services
+                    .AddNamedSingleton
+                    (
+                        typeof(TService), 
+                        typeof(TImplementation), 
+                        key
+                    );
+        }
+
+        /// <summary>
         /// Adds a singleton service of the type specified in <paramref name="serviceType"/> with a
         /// factory specified in <paramref name="implementationFactory"/> to the
         /// specified <see cref="IServiceCollection"/>.
