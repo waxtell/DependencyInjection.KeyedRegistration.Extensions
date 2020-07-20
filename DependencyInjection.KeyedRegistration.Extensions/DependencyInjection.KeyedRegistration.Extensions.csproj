@@ -9,7 +9,7 @@
     <PackageTags>dependency injection named registration</PackageTags>
     <PackageReleaseNotes>1.0.0- Initial release</PackageReleaseNotes>
     <PackageVersion>1.0.0-alpha</PackageVersion>
-    <Authors>waxtell</Authors>
+    <Authors>Will Axtell</Authors>
   </PropertyGroup>
 
   <ItemGroup>
