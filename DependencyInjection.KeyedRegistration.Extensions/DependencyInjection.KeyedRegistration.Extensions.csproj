@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <Description>Enhance the Microsoft dependency injection framework to support named or keyed registrations.</Description>
     <PackageProjectUrl>https://github.com/waxtell/DependencyInjection.KeyedRegistration.Extensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/waxtell/DependencyInjection.KeyedRegistration.Extensions.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>dependency injection named registration</PackageTags>
     <PackageReleaseNotes>1.0.0- Initial release</PackageReleaseNotes>
-    <PackageVersion>1.0.0-alpha</PackageVersion>
+    <Version>1.0.0</Version>
     <Authors>Will Axtell</Authors>
   </PropertyGroup>
 
