@@ -42,14 +42,26 @@ namespace DependencyInjection.KeyedRegistration.Extensions
             }
         }
 
-        public static TInstance Create<TInstance>(TInstance instance, TKey key)
+        public static TInstance PeelAndWrap<TInstance>(Func<TInstance, TInstance> wrap, TInstance baseInstance) 
+        {
+            var keyedInstance = (IKeyedService<TKey>) baseInstance;
+
+            return
+                Create
+                (
+                    wrap.Invoke((TInstance) keyedInstance.Instance),
+                    keyedInstance.Key
+                );
+        }
+
+        internal static TInstance Create<TInstance>(TInstance instance, TKey key)
         {
             return
                 (TInstance)
                     Create(typeof(TInstance), instance, key);
         }
 
-        public static object Create(Type instanceType, object instance, TKey key)
+        internal static object Create(Type instanceType, object instance, TKey key)
         {
             return
                 instanceType.GetTypeInfo().IsInterface
