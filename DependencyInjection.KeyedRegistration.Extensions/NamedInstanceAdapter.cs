@@ -9,7 +9,7 @@ namespace DependencyInjection.KeyedRegistration.Extensions
         public TKey Key { get; }
         public object Instance { get; }
 
-        public NamedInstanceAdapter(TKey key, object instance)
+        internal NamedInstanceAdapter(TKey key, object instance)
         {
             Key = key;
             Instance = instance;
@@ -42,6 +42,15 @@ namespace DependencyInjection.KeyedRegistration.Extensions
             }
         }
 
+        /// <summary>
+        /// Should you need to apply an additional interceptor (e.g. cache) use the PeelAndWrap method to
+        /// wrap the "pure" service instance with your interceptor and then re-wrap the new proxy with
+        /// the existing instance key.
+        /// </summary>
+        /// <typeparam name="TInstance">The type of the service</typeparam>
+        /// <param name="wrap">Your wrapper method which will receive the original instance</param>
+        /// <param name="baseInstance">The keyed/named instance</param>
+        /// <returns></returns>
         public static TInstance PeelAndWrap<TInstance>(Func<TInstance, TInstance> wrap, TInstance baseInstance) 
         {
             var keyedInstance = (IKeyedService<TKey>) baseInstance;
