@@ -51,7 +51,7 @@ namespace Microsoft.Extensions.DependencyInjection
             TKey key)
         {
             object AdaptedFactory(IServiceProvider provider) =>
-                NamedInstanceAdapter<TKey>
+                NamedInstanceAdapterFactory
                     .Create
                     (
                         serviceType,
@@ -92,7 +92,7 @@ namespace Microsoft.Extensions.DependencyInjection
             Func<IServiceProvider, object> implementationFactory,
             TKey key)
         {
-            object AdaptedFactory(IServiceProvider provider) => NamedInstanceAdapter<TKey>.Create(implementationFactory.Invoke(provider), key);
+            object AdaptedFactory(IServiceProvider provider) => NamedInstanceAdapterFactory.Create(implementationFactory.Invoke(provider), key);
 
             return
                 services
@@ -124,7 +124,7 @@ namespace Microsoft.Extensions.DependencyInjection
             where TService : class
             where TImplementation : class, TService
         {
-            TImplementation AdaptedFactory(IServiceProvider provider) => NamedInstanceAdapter<TKey>.Create(implementationFactory.Invoke(provider), key);
+            TImplementation AdaptedFactory(IServiceProvider provider) => NamedInstanceAdapterFactory.Create(implementationFactory.Invoke(provider), key);
 
             return
                 services
@@ -149,7 +149,7 @@ namespace Microsoft.Extensions.DependencyInjection
             TKey key)
             where TService : class
         {
-            TService AdaptedFactory(IServiceProvider provider) => NamedInstanceAdapter<TKey>.Create(implementationFactory.Invoke(provider), key);
+            TService AdaptedFactory(IServiceProvider provider) => NamedInstanceAdapterFactory.Create(implementationFactory.Invoke(provider), key);
 
             return
                 services
